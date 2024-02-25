@@ -10,3 +10,4 @@
 * Put the bucket name in application.yaml under bucket.name
 * Create a topic into SNS service
 * Take the topic arn and put in application.yaml under topic.name
+* Under username in aws console - go to Security Credentials - there create aws key and secret
