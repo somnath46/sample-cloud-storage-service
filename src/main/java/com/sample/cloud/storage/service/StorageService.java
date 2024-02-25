@@ -26,12 +26,15 @@ public class StorageService {
     private String bucketName;
 
     private final AmazonS3 s3Client;
+    private final NotificationService notificationService;
 
     public String uploadFile(MultipartFile file) {
         File fileObj = convertMultiPartFileToFile(file);
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         s3Client.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
         fileObj.delete();
+        // Notify SNS
+        notificationService.publishMessageToTopic(fileName);
         return "File uploaded : " + fileName;
     }
 

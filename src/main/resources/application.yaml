@@ -4,13 +4,15 @@ cloud:
       access-key:
       secret-key:
     region:
-      static: us-east-2
+      static: # region example: us-east-2
     stack:
       auto: false
 
 application:
   bucket:
-    name: tntstorage
+    name: # S3 bucket name
+  topic:
+    name: # topic ARN
 
 
 spring:
